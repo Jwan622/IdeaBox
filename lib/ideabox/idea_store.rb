@@ -4,6 +4,9 @@ class IdeaStore
     @all ||= []
     idea.id = next_id
     @all << idea
+    #interesting so the idea objects gets pushed into the @all array, and
+    # then the object gets an id that is = count + 1. It gets pushed, then
+    #id'ed. Very neat. 
     idea.id
   end
 
