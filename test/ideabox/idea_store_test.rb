@@ -1,10 +1,6 @@
-require './lib/ideabox/idea'
-require './lib/ideabox/idea_store'
-
-gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-
+require './lib/ideabox/idea'  # => true
+require './lib/ideabox/idea_store'         # ~> LoadError: cannot load such file -- ./lib/ideabox/idea_store
+require './test/idea_test'
 
 class IdeaStoreTest < Minitest::Test
   def test_save_and_retrieve_an_idea
@@ -36,3 +32,10 @@ class IdeaStoreTest < Minitest::Test
     assert_equal "of unicorns and rainbows", found_idea2.description
   end
 end
+
+# ~> LoadError
+# ~> cannot load such file -- ./lib/ideabox/idea_store
+# ~>
+# ~> /Users/Jwan/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+# ~> /Users/Jwan/.rvm/rubies/ruby-2.1.3/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+# ~> /Users/Jwan/Dropbox/Turing/IdeaBox/test/ideabox/idea_store_test.rb:2:in `<main>'
